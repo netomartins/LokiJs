@@ -4,7 +4,7 @@ import LokiIndexedAdapter from 'lokijs/src/loki-indexed-adapter';
 
 function databaseInitialize() {
   if (!db.getCollection("users")) {
-    db.addCollection("users");
+    db.addCollection("users", {unique:['id']});
   }
   if (!db.getCollection("cities")) {
     db.addCollection("cities");
@@ -17,8 +17,8 @@ var db = new loki("test", {
   adapter: pa,
   autoload: true,
   autoloadCallback: databaseInitialize,
-  autosave: true,
-  autosaveInterval: 2000
+  autosave: false,
+  autosaveInterval: 20000
 });
 
 
