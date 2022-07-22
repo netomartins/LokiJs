@@ -6,6 +6,9 @@ function databaseInitialize() {
   if (!db.getCollection("users")) {
     db.addCollection("users");
   }
+  if (!db.getCollection("cities")) {
+    db.addCollection("cities");
+  }
 }
 
 var idbAdapter = new LokiIndexedAdapter('finance');
